@@ -19,11 +19,12 @@
 
 ## investor
 
-| method | path               | Purpose         | require auth |
-| ------ | ------------------ | --------------- | ------------ |
-| POST   | /api/auth/register | sign up a user  | no           |
-| POST   | /api/auth/login    | sign in a user  | no           |
-| POST   | /api/auth/logout   | sign out a user | no           |
+| method | path                    | Purpose               | require auth |
+| ------ | ----------------------- | --------------------- | ------------ |
+| POST   | /api/investors/register | sign up a user        | no           |
+| POST   | /api/investors/login    | sign in a user        | no           |
+| POST   | /api/investors/logout   | sign out a user       | no           |
+| PATCH  | /api/wallet             | add balance in wallet | no           |
 
 # Database structure
 

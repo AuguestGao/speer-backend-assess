@@ -43,7 +43,7 @@ router.post(
       throw new BadRequestError("Username is in use, please try another one.");
     }
 
-    const investor = Investor.build({ username, password, balance: 0 });
+    const investor = Investor.build({ username, password });
     await investor.save();
 
     const expiration = new Date();

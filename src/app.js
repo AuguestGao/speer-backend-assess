@@ -17,6 +17,8 @@ const { registerRouter } = require("./routes/investor-auth/register");
 const { logInRouter } = require("./routes/investor-auth/login");
 const { logOutRouter } = require("./routes/investor-auth/logout");
 
+const { addBalanceRouter } = require("./routes/wallet/add");
+
 const app = express();
 
 app.set("trust proxy", true);
@@ -41,6 +43,8 @@ app.use(deleteTweetRouter);
 app.use(registerRouter);
 app.use(logInRouter);
 app.use(logOutRouter);
+
+app.use(addBalanceRouter);
 
 app.all("*", async (req, res) => {
   throw new NotFoundError();
