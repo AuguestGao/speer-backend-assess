@@ -7,6 +7,7 @@ const NotFoundError = require("./errors/not-found-error");
 
 const { signUpRouter } = require("./routes/auth/signup");
 const { signInRouter } = require("./routes/auth/signin");
+const { signOutRouter } = require("./routes/auth/signout");
 const { createTweetRouter } = require("./routes/tweet/create");
 const { getTweetsRouter } = require("./routes/tweet/read");
 const { updateTweetRouter } = require("./routes/tweet/update");
@@ -24,6 +25,8 @@ app.use(
 
 app.use(signUpRouter);
 app.use(signInRouter);
+app.use(signOutRouter);
+
 app.use(createTweetRouter);
 app.use(getTweetsRouter);
 app.use(updateTweetRouter);
