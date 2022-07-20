@@ -3,7 +3,6 @@ const { body } = require("express-validator");
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
 const Hash = require("../../utils/hash");
-require("dotenv").config();
 
 const BadRequestError = require("../../errors/bad-request-error");
 const validateRequest = require("../../middlewares/validate-request");
