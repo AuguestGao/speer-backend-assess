@@ -3,12 +3,14 @@ const { body } = require("express-validator");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-const BadRequestError = require("../errors/bad-request-error");
-const validateRequest = require("../middlewares/validate-request");
+const BadRequestError = require("../../errors/bad-request-error");
+const validateRequest = require("../../middlewares/validate-request");
 
-const User = require("../models/user");
+const User = require("../../models/user");
 
 const router = new Router();
+
+const EXPIRATION_WINDOW_SECONDS = 1 * 60;
 
 router.post(
   "/api/auth/signup",
@@ -44,10 +46,14 @@ router.post(
     const user = User.build({ username, password });
     await user.save();
 
+    const expiration = new Date();
+    expiration.setSeconds(expiration.getSeconds() + EXPIRATION_WINDOW_SECONDS);
+
     const userJwt = jwt.sign(
       {
         id: user.id,
         username: user.username,
+        expiresAt: expiration,
       },
       process.env.JWT_KEY
     );
@@ -60,4 +66,4 @@ router.post(
   }
 );
 
-module.exports = router;
+module.exports = { signUpRouter: router };

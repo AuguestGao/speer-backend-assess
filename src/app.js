@@ -4,7 +4,8 @@ const cookieSession = require("cookie-session");
 const errorHandler = require("./middlewares/error-handler");
 const NotFoundError = require("./errors/not-found-error");
 
-const userRouter = require("./routes/user");
+const { signUpRouter } = require("./routes/auth/signUp");
+const { signInRouter } = require("./routes/auth/signIn");
 
 const app = express();
 
@@ -16,7 +17,8 @@ app.use(
   })
 );
 
-app.use(userRouter);
+app.use(signUpRouter);
+app.use(signInRouter);
 
 app.all("*", async (req, res) => {
   throw new NotFoundError();
