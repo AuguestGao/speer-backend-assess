@@ -17,6 +17,14 @@
 | PATCH  | /api/tweets/:id | update a tweet | yes          |
 | DELETE | /api/tweets/:id | delete a tweet | yes          |
 
+## investor
+
+| method | path               | Purpose         | require auth |
+| ------ | ------------------ | --------------- | ------------ |
+| POST   | /api/auth/register | sign up a user  | no           |
+| POST   | /api/auth/login    | sign in a user  | no           |
+| POST   | /api/auth/logout   | sign out a user | no           |
+
 # Database structure
 
 ## user
@@ -38,3 +46,14 @@
 | id        | string    | yes      | auto generated   |
 | createdAt | Date      | yes      | auto generated   |
 | updatedAt | Date      | yes      | auto generated   |
+
+## investor
+
+| field     | data type | required | other constrains |
+| --------- | --------- | -------- | ---------------- |
+| username  | string    | yes      | min = 3          |
+| password  | string    | yes      | hased            |
+| id        | string    | yes      | auto generated   |
+| createdAt | Date      | yes      | auto generated   |
+| updatedAt | Date      | yes      | auto generated   |
+| balance   | number    | yes      | init = 0         |
