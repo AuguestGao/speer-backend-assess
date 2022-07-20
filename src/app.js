@@ -1,5 +1,6 @@
 const express = require("express");
 const { json } = require("body-parser");
+require("express-async-errors");
 const cookieSession = require("cookie-session");
 const errorHandler = require("./middlewares/error-handler");
 const NotFoundError = require("./errors/not-found-error");
