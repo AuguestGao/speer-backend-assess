@@ -15,7 +15,7 @@ const router = new Router();
 const EXPIRATION_WINDOW_SECONDS = 1 * 60;
 
 router.post(
-  "/api/auth/signin",
+  "/api/users/signin",
   [
     body("username")
       .trim()
@@ -34,6 +34,7 @@ router.post(
     const { username, password } = req.body;
 
     const existingUser = await User.findOne({ username });
+
     if (!existingUser) {
       throw new BadRequestError("Invalid credential.");
     }
@@ -50,7 +51,8 @@ router.post(
     const userJwt = jwt.sign(
       {
         id: existingUser.id,
-        displayName: existingUser.displayName,
+        username: existingUser.username,
+        expiresAt: expiration,
       },
       process.env.JWT_KEY
     );
@@ -59,7 +61,7 @@ router.post(
       jwt: userJwt,
     };
 
-    res.status(201).send(`Successfully signed in ${existingUser.username}`);
+    res.status(200).send(`Successfully signed in ${existingUser.username}`);
   }
 );
 

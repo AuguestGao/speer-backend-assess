@@ -13,7 +13,7 @@ const router = new Router();
 const EXPIRATION_WINDOW_SECONDS = 1 * 60;
 
 router.post(
-  "/api/auth/signup",
+  "/api/users/signup",
   [
     body("username")
       .trim()

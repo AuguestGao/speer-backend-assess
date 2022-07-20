@@ -5,8 +5,8 @@ const cookieSession = require("cookie-session");
 const errorHandler = require("./middlewares/error-handler");
 const NotFoundError = require("./errors/not-found-error");
 
-const { signUpRouter } = require("./routes/auth/signUp");
-const { signInRouter } = require("./routes/auth/signIn");
+const { signUpRouter } = require("./routes/auth/signup");
+const { signInRouter } = require("./routes/auth/signin");
 
 const app = express();
 
