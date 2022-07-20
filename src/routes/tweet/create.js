@@ -38,7 +38,7 @@ router.post(
 
     await tweet.save();
 
-    res.status(201).send({ message: "Tweeted " + tweet.body });
+    res.status(201).send({ message: "Tweeted created", id: tweet._id });
   }
 );
 

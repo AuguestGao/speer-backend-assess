@@ -9,6 +9,7 @@ const { signUpRouter } = require("./routes/auth/signup");
 const { signInRouter } = require("./routes/auth/signin");
 const { createTweetRouter } = require("./routes/tweet/create");
 const { getTweetsRouter } = require("./routes/tweet/read");
+const { updateTweetRouter } = require("./routes/tweet/update");
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use(signUpRouter);
 app.use(signInRouter);
 app.use(createTweetRouter);
 app.use(getTweetsRouter);
+app.use(updateTweetRouter);
 
 app.all("*", async (req, res) => {
   throw new NotFoundError();
