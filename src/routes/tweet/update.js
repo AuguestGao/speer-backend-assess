@@ -36,7 +36,7 @@ router.patch(
 
     await tweet.save();
 
-    res.status(200).send({ message: "Tweet updated", id: tweet._id });
+    res.status(200).send({ message: "Tweet updated", tweet });
   }
 );
 

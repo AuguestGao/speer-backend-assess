@@ -60,7 +60,12 @@ router.post(
       jwt: userJwt,
     };
 
-    res.status(200).send(`Successfully signed in ${existingUser.username}`);
+    res
+      .status(200)
+      .send({
+        message: `Successfully signed up ${existingUser.username}`,
+        user: existingUser,
+      });
   }
 );
 
