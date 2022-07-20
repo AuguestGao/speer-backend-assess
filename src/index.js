@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const app = require("./app");
 
+const port = process.env.PORT || 3000;
+
 const start = () => {
   console.log("Starting up...");
 
@@ -16,8 +18,8 @@ const start = () => {
     console.log(err);
   }
 
-  app.listen(process.env.PORT, () => {
-    console.log("Server is up on port", process.env.PORT);
+  app.listen(port, () => {
+    console.log("Server is up on port", port);
   });
 };
 
