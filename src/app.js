@@ -7,6 +7,10 @@ const NotFoundError = require("./errors/not-found-error");
 
 const { signUpRouter } = require("./routes/auth/signup");
 const { signInRouter } = require("./routes/auth/signin");
+const { createTweetRouter } = require("./routes/tweet/create");
+const { getTweetsRouter } = require("./routes/tweet/read");
+const { updateTweetRouter } = require("./routes/tweet/update");
+const { deleteTweetRouter } = require("./routes/tweet/delete");
 
 const app = express();
 
@@ -20,6 +24,10 @@ app.use(
 
 app.use(signUpRouter);
 app.use(signInRouter);
+app.use(createTweetRouter);
+app.use(getTweetsRouter);
+app.use(updateTweetRouter);
+app.use(deleteTweetRouter);
 
 app.all("*", async (req, res) => {
   throw new NotFoundError();
