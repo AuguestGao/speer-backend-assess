@@ -31,7 +31,7 @@ it("does not delete other's tweet", async () => {
     })
     .expect(201);
 
-  const tweetId = createTweetRes.body.id;
+  const tweetId = createTweetRes.body.tweet.id;
 
   const createUser2Res = await request(app)
     .post("/api/users/signup")
@@ -73,7 +73,7 @@ it("returns 204 if everything goes well", async () => {
     })
     .expect(201);
 
-  const tweetId = createTweetRes.body.id;
+  const tweetId = createTweetRes.body.tweet.id;
 
   await request(app)
     .delete(`/api/tweets/${tweetId}`)

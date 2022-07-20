@@ -62,7 +62,10 @@ router.post(
       jwt: userJwt,
     };
 
-    res.status(201).send(`Successfully registered ${investor.username}`);
+    res.status(201).send({
+      message: `Successfully registered ${investor.username}`,
+      investor,
+    });
   }
 );
 

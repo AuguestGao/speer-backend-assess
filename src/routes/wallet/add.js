@@ -37,7 +37,9 @@ router.patch(
 
     await investor.save();
 
-    res.status(200).send({ message: "Saved in balance" });
+    res
+      .status(200)
+      .send({ message: "Current balance is $ " + investor.balance });
   }
 );
 

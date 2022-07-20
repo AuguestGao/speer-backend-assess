@@ -60,7 +60,10 @@ router.post(
       jwt: userJwt,
     };
 
-    res.status(200).send(`Successfully logged in ${existingUser.username}`);
+    res.status(200).send({
+      message: `Successfully logged in ${existingUser.username}`,
+      investor: existingUser,
+    });
   }
 );
 
